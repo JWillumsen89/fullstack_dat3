@@ -18,31 +18,10 @@ public class PlayerController {
     this.playerRepository = playerRepository;
   }
 
-
   @GetMapping
   Iterable<Player> getPlayers() {
     return playerRepository.findAll();
   }
 
-  @GetMapping("/{id}")
-  public Optional<Player> getPlayerById(@PathVariable("id") Integer id) {
-    return playerRepository.findById(id);
-  }
-
-  @PostMapping
-  public Player createPlayer(@RequestBody Player player) {
-    return playerRepository.save(player);
-  }
-
-  @PutMapping("/{id}")
-  public Player updatePlayer(@PathVariable Integer id, @RequestBody Player player) {
-    player.setId(id);
-    return playerRepository.save(player);
-  }
-
-  @DeleteMapping("/{id}")
-  public void deletePlayer(@PathVariable("id") Integer id) {
-    playerRepository.deleteById(id);
-  }
 }
 
